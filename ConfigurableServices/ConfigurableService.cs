@@ -15,8 +15,9 @@ namespace ConfigurableServices
 
         private IEnumerable<ConfigurableProperty> configurableProperties;
 
-        public ConfigurableService()
+        public ConfigurableService(IConfigService configService)
         {
+            ConfigService = configService;
             ConfigService.ConfigUpdated += ConfigUpdated;
 
             //Generate Configurable Propertyies
@@ -31,7 +32,7 @@ namespace ConfigurableServices
             foreach (var property in configurableProperties)
             {
                 string value = ConfigService.GetValue(property.ConfigKey);
-                property.SetValue(value);
+                property.SetValue(this, value);
             }
 
 

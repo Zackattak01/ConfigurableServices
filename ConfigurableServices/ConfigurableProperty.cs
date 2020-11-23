@@ -15,9 +15,9 @@ namespace ConfigurableServices
             this.property = property;
         }
 
-        public void SetValue(string value)
+        public void SetValue(object obj, string value)
         {
-            property.SetValue(this, value);
+            property.SetValue(obj, value);
         }
     }
 }
