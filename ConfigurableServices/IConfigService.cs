@@ -9,8 +9,6 @@ namespace ConfigurableServices
 
         void Reload();
 
-        string GetValue(string key);
-
         T GetValue<T>(string key)
             where T : class;
 
