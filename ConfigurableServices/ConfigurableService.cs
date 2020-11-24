@@ -23,7 +23,7 @@ namespace ConfigurableServices
             //Generate Configurable Propertyies
             configurableProperties = GetConfigurableProperties();
 
-
+            ConfigUpdated();
         }
 
         protected virtual void ConfigUpdated()
