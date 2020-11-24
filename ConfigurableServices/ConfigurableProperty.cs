@@ -3,19 +3,18 @@ using System.Reflection;
 
 namespace ConfigurableServices
 {
-    public class ConfigurableProperty
+    public class ConfigurableProperty : Configurable
     {
-        public string ConfigKey { get; }
 
         private PropertyInfo property;
 
         public ConfigurableProperty(string configKey, PropertyInfo property)
+        : base(configKey)
         {
-            ConfigKey = configKey;
             this.property = property;
         }
 
-        public void SetValue(object obj, object value)
+        public override void SetValue(object obj, object value)
         {
             property.SetValue(obj, value);
         }
