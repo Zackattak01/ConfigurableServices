@@ -31,7 +31,8 @@ namespace ConfigurableServices
 
             foreach (var property in configurableProperties)
             {
-                string value = ConfigService.GetValue(property.ConfigKey);
+
+                object value = ConfigService.GetValue<object>(property.ConfigKey);
                 property.SetValue(this, value);
             }
 
